@@ -1,5 +1,8 @@
 # Minimum Changes to Make Binary String Beautiful (All Approaches)
 
+**Referal Video Explanation (Not a Paid Promotion)** - [Minimum Number of Changes to Make Binary String Beautiful - Leetcode 2914 - Python](https://youtube.com/watch?v=qhxhrTA4HJw)
+<hr>
+
 - ## Approach 1:- Pairwise Comparison (Greedy)
 
     - ### Intuition
