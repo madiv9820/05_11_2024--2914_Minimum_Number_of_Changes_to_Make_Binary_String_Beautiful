@@ -1,22 +1,15 @@
 class Solution:
     def minChanges(self, s: str) -> int:
-        # Initialize two pointers: left_Ptr and right_Ptr
-        # left_Ptr will track the most recent character that is part of the current "group"
-        # total_InterChanges will count the number of changes needed to make the string "valid"
-        left_Ptr, total_InterChanges = 0, 0
+        # Initialize a counter to keep track of the required number of changes
+        total_InterChanges = 0
         
-        # Iterate through the string with right_Ptr acting as the current position in the string
-        for right_Ptr in range(len(s)):
-            # If the characters at left_Ptr and right_Ptr are different, we need an interchange
-            if s[left_Ptr] != s[right_Ptr]: 
-                # Check if right_Ptr is an odd index (1-based) 
-                # We process only when right_Ptr is an odd index
-                # (right_Ptr & 1) checks if right_Ptr is odd
-                if right_Ptr & 1:
-                    total_InterChanges += 1
+        # Iterate over the string with a step of 2, starting from index 0
+        # This ensures that we compare pairs of characters at indices (0, 1), (2, 3), (4, 5), etc.
+        for index in range(0, len(s) - 1, 2):
+            # Compare the characters at positions index and index + 1
+            if s[index] != s[index + 1]:
+                # If the characters do not match, increment the change counter
+                total_InterChanges += 1
 
-                # Move left_Ptr to the position of right_Ptr, essentially moving to the next "pair"
-                left_Ptr = right_Ptr
-        
-        # Return the total number of interchanges (or changes) needed to make the string "valid"
+        # Return the total number of interchanges (changes required)
         return total_InterChanges
