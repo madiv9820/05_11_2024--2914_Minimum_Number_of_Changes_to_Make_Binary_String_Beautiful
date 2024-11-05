@@ -5,26 +5,20 @@ using namespace std;
 class Solution {
     public:
         int minChanges(string s) {
-            // Initialize two pointers: left_Ptr and right_Ptr
-            // left_Ptr will track the most recent character that is part of the current "group"
-            // total_InterChanges will count the number of changes needed to make the string "valid"
-            int left_Ptr = 0, total_InterChanges = 0;
-
-            // Iterate through the string with right_Ptr acting as the current position in the string
-            for(int right_Ptr = 0; right_Ptr < s.length(); ++right_Ptr) {
-                // If the characters at left_Ptr and right_Ptr are different
-                if(s[left_Ptr] != s[right_Ptr]) {
-                    // Check if right_Ptr is odd (1-based index)
-                    // If right_Ptr is odd, increment the number of interchanges (changes required)
-                    if(right_Ptr & 1) {
-                        ++total_InterChanges;
-                    }
-                    // Move left_Ptr to the position of right_Ptr, essentially moving to the next "pair"
-                    left_Ptr = right_Ptr;
+            // Initialize a counter to keep track of the required number of changes
+            int total_InterChanges = 0;
+            
+            // Iterate over the string, checking pairs of characters at indices (0, 1), (2, 3), (4, 5), etc.
+            // The loop runs with a step of 2, comparing characters at even and odd indices
+            for (int index = 0; index < s.length() - 1; index += 2) {
+                // Compare the characters at the current pair of indices
+                if (s[index] != s[index + 1]) {
+                    // If the characters do not match, increment the change counter
+                    ++total_InterChanges;
                 }
             }
-
-            // Return the total number of interchanges (or changes) needed to make the string "valid"
+            
+            // Return the total number of interchanges (changes required)
             return total_InterChanges;
         }
 };
