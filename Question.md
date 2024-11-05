@@ -32,7 +32,7 @@ __Explanation:__ We change s[1] to 1 to get string "11". <br>
 It can be seen that the string "11" is beautiful because we can partition it into "11". <br>
 It can be proven that 1 is the minimum number of changes needed to make the string beautiful.
 
-__Example 3:__ <br>
+- __Example 3:__ <br>
 __Input:__ s = "0000" <br>
 __Output:__ 0 <br>
 __Explanation:__ We don't need to make any changes as the string "0000" is beautiful already.
